@@ -30,23 +30,21 @@ Bot.use(stage.middleware());
 Bot.command('start', startSceneInvoke);
 
 /** Bot DebridCommands */
-Bot.use(Middleware.ValidateUser);
-Bot.command('magnet_status', torrentStatus);
-Bot.command('magnet', torrentDownload);
-Bot.command('host', hostDownload);
+Bot.command('magnet_status', Middleware.ValidateUser, torrentStatus);
+Bot.command('magnet', Middleware.ValidateUser, torrentDownload);
+Bot.command('host', Middleware.ValidateUser, hostDownload);
 
 /** Bot UserCommands */
 Bot.command('redeem', redeemKey);
 
 /** Bot AdminCommands */
-Bot.use(Middleware.ValidateAdmin);
-Bot.command('dir', DirectorySceneInvoke);
-Bot.command('users', getUsers);
-Bot.command('adduser', addUser);
-Bot.command('rmuser', removeUser);
-Bot.command('keys', getKeys);
-Bot.command('addkey', generateKey);
-Bot.command('rmkey', removeKey);
+Bot.command('dir', Middleware.ValidateAdmin, DirectorySceneInvoke);
+Bot.command('users', Middleware.ValidateAdmin, getUsers);
+Bot.command('adduser', Middleware.ValidateAdmin, addUser);
+Bot.command('rmuser', Middleware.ValidateAdmin, removeUser);
+Bot.command('keys', Middleware.ValidateAdmin, getKeys);
+Bot.command('addkey', Middleware.ValidateAdmin, generateKey);
+Bot.command('rmkey', Middleware.ValidateAdmin, removeKey);
 
 /** Bot Launch */
 Bot.launch({ dropPendingUpdates: true }).then((_) => console.log('Bot started'));

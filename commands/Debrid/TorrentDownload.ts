@@ -105,6 +105,13 @@ ${bold`Time :`} ${dayjs.tz().format('DD-MM-YYYY hh:mm A')}`
           }
         });
 
+        /** Remove 3 Credit From User */
+        const updatedUser = await db
+          .update(users)
+          .set({ points: user.points - 3 })
+          .where(eq(users.telegram_id, ctx.from.id))
+          .returning();
+
         /** Edit And Send DownloadCompleted Message */
         const downloadCompletedMessage = `
 <b>(Torrent Download) :</b>
@@ -120,6 +127,7 @@ ${bold`Time :`} ${dayjs.tz().format('DD-MM-YYYY hh:mm A')}`
 <b>└ Added On :</b> ${dayjs.tz(torrentInfoReq.added).format('DD-MM-YYYY hh:mm:ss A')}
 
 <b>┌ User Name :</b> ${ctx.from.first_name}
+<b>├ Points Left :</b> ${updatedUser[0].points}
 <b>├ File Name :</b> ${torrentInfoReq.filename}
 <b>├ Files :</b> ${
           download_links.length

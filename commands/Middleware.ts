@@ -13,15 +13,15 @@ class Middleware {
         where: eq(users.telegram_id, ctx.from.id),
       });
 
-      if (user) {
-        return next();
+      if (!user) {
+        throw 'You are not a registered user.';
       }
 
-      /** Return Error Message */
-      throw 'You are not a registered user.';
+      /** Otherwise Return From Middleware */
+      return next();
     } catch (error) {
       /** Log Error Message */
-      console.log(`LOG: 🚀 ~ file: Middleware.ts ~ commands ~ ValidateUser ~ error
+      console.log(`LOG: 🚀 ~ error ~ file: validateUser ~ Middleware.ts ~ commands
               error: ${error}
               at: ${dayjs.tz().format('DD-MM-YYYY hh:mm:ss A')}`);
 
@@ -56,11 +56,11 @@ ${bold`Time :`} ${dayjs.tz().format('DD-MM-YYYY hh:mm A')}`,
         throw 'You are not an admin.';
       }
 
-      /** Return Error Message */
+      /** Otherwise Return From Middleware */
       return next();
     } catch (error) {
       /** Log Error Message */
-      console.log(`LOG: 🚀 ~ file: Middleware.ts ~ commands ~ ValidateAdmin ~ error
+      console.log(`LOG: 🚀 ~ error ~ file: validateAdmin ~ Middleware.ts ~ commands
               error: ${error}
               at: ${dayjs.tz().format('DD-MM-YYYY hh:mm:ss A')}`);
 

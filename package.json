@@ -1,6 +1,6 @@
 {
   "name": "raizel-telegraf-bot",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Telegram Bot Made Using Telegraf For Real Debrid",
   "main": "app.ts",
   "scripts": {
