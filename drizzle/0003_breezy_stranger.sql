@@ -1,0 +1,1 @@
+ALTER TABLE "keys" ALTER COLUMN "key" SET DATA TYPE varchar(191);

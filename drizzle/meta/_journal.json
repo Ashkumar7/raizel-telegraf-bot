@@ -1,0 +1,48 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1697398812401,
+      "tag": "0000_smart_masque",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1697399214113,
+      "tag": "0001_tan_santa_claus",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1697497385755,
+      "tag": "0002_cooing_darkhawk",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1697503138538,
+      "tag": "0003_breezy_stranger",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1697578697838,
+      "tag": "0004_quiet_nightcrawler",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1697578942260,
+      "tag": "0005_rainy_mojo",
+      "breakpoints": true
+    }
+  ]
+}
