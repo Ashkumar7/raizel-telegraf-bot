@@ -35,7 +35,7 @@ Bot.command('magnet', Middleware.ValidateUser, torrentDownload);
 Bot.command('host', Middleware.ValidateUser, hostDownload);
 
 /** Bot UserCommands */
-Bot.command('redeem', redeemKey);
+Bot.command('redeem', Middleware.ValidateUser, redeemKey);
 
 /** Bot AdminCommands */
 Bot.command('dir', Middleware.ValidateAdmin, DirectorySceneInvoke);
