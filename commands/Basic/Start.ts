@@ -41,7 +41,7 @@ ${bold`Time [IST] :`} ${dayjs.tz().format('DD-MM-YYYY hh:mm A')}
         ...Markup.inlineKeyboard(
           [
             Markup.button.callback('📝 Usecase ?', 'usecase'),
-            Markup.button.callback('📚 How To Use ?', 'help'),
+            Markup.button.callback('📚 Commands', 'commands'),
             Markup.button.callback('🧑🏼 Debrid Info', 'debrid_info'),
             Markup.button.callback('📊 Hosters', 'hoster_page'),
           ],
