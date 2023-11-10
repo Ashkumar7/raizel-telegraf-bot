@@ -1,17 +1,17 @@
 import Axios, { AxiosRequestConfig, AxiosResponse, type AxiosInstance } from 'axios';
 import DotEnv from 'dotenv';
-import { ProxyAgent } from 'proxy-agent';
+import { HttpsProxyAgent } from 'hpagent';
 
 /** Load Environment Variables */
 DotEnv.config({ path: '.env.local' });
 
 /** Initialize Tunnel */
-const agent = new ProxyAgent({
-  protocol: 'http',
-  host: process.env.PROXY_HOST,
-  port: Number(process.env.PROXY_PORT),
-  auth: `${process.env.PROXY_USERNAME}:${process.env.PROXY_PASSWORD}`,
-  rejectUnauthorized: false,
+const agent = new HttpsProxyAgent({
+  proxy: `http://${process.env.PROXY_USERNAME}:${process.env.PROXY_PASSWORD}@${process.env.PROXY_HOST}:${process.env.PROXY_PORT}`,
+  keepAlive: true,
+  keepAliveMsecs: 1000,
+  maxSockets: 256,
+  maxFreeSockets: 256,
 });
 
 /** Create a function to create an Axios instance with dynamic types */
@@ -19,7 +19,7 @@ const createAxiosInstance = <T>() => {
   try {
     const axiosInstance: AxiosInstance = Axios.create({
       baseURL: 'https://api.real-debrid.com:443',
-      httpAgent: agent,
+      httpsAgent: agent,
       proxy: false,
       headers: {
         Authorization: `Bearer ${process.env.REAL_DEBRID_API_TOKEN}`,
