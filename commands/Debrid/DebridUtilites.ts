@@ -78,9 +78,9 @@ class DebridCommandsUtilis {
    * @returns string
    */
   static progressBar = (progess: number) => {
-    const completedWidth = Math.round((progess / 100) * 10);
-    const remainingWidth = 10 - completedWidth;
-    return `[ ${'→ '.repeat(completedWidth)}${'     '.repeat(remainingWidth)} ] ${progess}%`;
+    const completedWidth = Math.round((progess / 100) * 15);
+    const remainingWidth = 15 - completedWidth;
+    return `[ ${'≗'.repeat(completedWidth)}${'─'.repeat(remainingWidth)} ] ${progess}%`;
   };
 }
 
