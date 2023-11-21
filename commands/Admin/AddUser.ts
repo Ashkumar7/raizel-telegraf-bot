@@ -8,7 +8,7 @@ import { Message, Update } from 'telegraf/typings/core/types/typegram';
 import z from 'zod';
 
 /**
- * Create new user in database.
+ * Create new user in the database.
  * @param ctx Context
  * @returns Promise<Message.TextMessage>
  */

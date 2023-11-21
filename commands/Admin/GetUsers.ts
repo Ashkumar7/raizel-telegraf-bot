@@ -4,7 +4,7 @@ import { Context } from 'telegraf';
 import { bold, fmt } from 'telegraf/format';
 
 /**
- * Get all users from database.
+ * Get all users from the database.
  * @param ctx Context
  * @returns Promise<Message.TextMessage>
  */

@@ -31,10 +31,6 @@ ${bold`Time :`} ${dayjs.tz().format('DD-MM-YYYY hh:mm A')}`,
     ).message_id;
 
     const arg = ctx.message.text.split(' ').slice(1)[0];
-    const urlRegex = /^((https?:\/\/|ftp:\/\/|www\.|[^\s:=]+@www\.).*?[a-z_\/0-9\-#=&])(?=([.,;?!])?("|'|«|»|\[|\s|\r|\n|$))$/;
-    if (!arg || RegExp(urlRegex).test(arg) === false) {
-      throw 'Invalid or no URL was provided.';
-    }
 
     /** Check if user exists */
     const user = await db.query.users.findFirst({

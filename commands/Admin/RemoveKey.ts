@@ -8,7 +8,7 @@ import { Message, Update } from 'telegraf/typings/core/types/typegram';
 import z from 'zod';
 
 /**
- * Remove key from database.
+ * Remove a key from the database.
  * @param ctx Context
  * @returns Promise<Message.TextMessage>
  */
